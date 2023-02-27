@@ -1,0 +1,36 @@
+
+
+.post {
+    margin:100px;
+    border: solid 2px black;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 25px;
+
+    width: 575px;
+ 
+}
+
+
+.userIcon {
+    margin-right: 20px;
+    height: 40px;
+    border: solid 2px black;
+    border-radius: 25px;
+}
+
+.userInfo {
+    display: inline-block;
+}
+
+.userInfo > * {
+    display: inline-block;
+}
+
+.postContent {
+    margin-top: 15px;
+    display: inline-block;
+    overflow: hidden;
+    overflow-wrap: normal;
+
+}

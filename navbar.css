@@ -1,0 +1,37 @@
+
+.navbar {
+    padding: 20px;
+    display: block;
+
+    height: 40px;
+
+    border-bottom: solid black 2px;
+}
+
+/*  apply inline block to all child elems of the nav bar,
+    keeps them all horizontal
+*/
+.navbar > * {
+    display: inline-block;
+    margin-left: 35px;
+    height: inherit;
+}
+
+.navbar > div > text {
+    font-size: 26px;
+    border-bottom: solid 2px black; 
+}
+
+.navbar > div > img {
+    height: inherit;
+}
+
+/*  the icon to the right in the navbar, needs it's own class 
+    since it's unique */
+.navUserIcon {
+    float: right;
+    margin-right: 35px;
+    height: inherit;
+    border: solid 2px black;
+    border-radius: 25px;
+}
