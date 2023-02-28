@@ -1,5 +1,54 @@
 /* style sheet for mainPage and possibliy others */
 
+
 /*-------------------------For profile page--------------------------*/
+/*General Formatting*/
+.profile {
+    margin-left:100px;
+    margin-top: 50px;
+    margin-right: 100px;
+    
+    border: solid 2px black;
+    border-radius: 10px;
+    
+    display: inline-block;
+    padding: 25px;
+
+    width: 575px;
+}
+
+.profile > div {
+    float: left;
+}
+
+/*pfp formatting*/
+.profileIcon {
+    border: solid 2px black;
+    border-radius: 50px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    height: 100px;
+}
+
+/*description formatting*/
+.description {
+    float: left;
+
+    display: block;
+    margin-left: 10px;
+
+    width: 430px;
+
+}
+
+/*Dislike counter formatting*/
+.dislikes {
+    display: block;
+    float: right;
+
+}
 
 /*-------------------------------------------------------------------*/

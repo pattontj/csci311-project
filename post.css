@@ -1,7 +1,9 @@
 
 
 .post {
-    margin:100px;
+    margin-left:100px;
+    margin-right: 100px;
+    margin-top: 5px;
     border: solid 2px black;
     border-radius: 10px;
     display: inline-block;
