@@ -10,7 +10,7 @@
     padding: 25px;
 
     width: 575px;
- 
+    min-height: 175px;
 }
 
 
@@ -22,7 +22,7 @@
 }
 
 .userInfo {
-    display: inline-block;
+    display: block;
 }
 
 .userInfo > * {
