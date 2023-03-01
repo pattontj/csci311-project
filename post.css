@@ -36,3 +36,14 @@
     overflow-wrap: normal;
 
 }
+
+.createPostBox {
+    margin-top: 15px;
+    width: 515px;
+    height: 100px;
+
+    overflow: hidden;
+    resize: none;
+    
+    font-size: large;
+}

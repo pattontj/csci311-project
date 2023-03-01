@@ -18,7 +18,6 @@ function form_post($posterID=0, $posterName="Name User", $content = "Lore Ipsum"
     echo "
     <div class='post'>
 
-
     <div class='userInfo'>
         <div>
             <img src='assets/default_pfp.svg' class=userIcon height='40px'/>
@@ -26,13 +25,8 @@ function form_post($posterID=0, $posterName="Name User", $content = "Lore Ipsum"
     <p style='vertical-align: 80%;'>$posterName</p>   
     </div>
     
-    
-    
-    
     <text class='postContent'> $content </text>
     
-    
-
     </div>
 
 ";

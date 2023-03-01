@@ -42,6 +42,9 @@
 $loreIpsum="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
      require_once("post.php");
+
+     require_once("createPost.php");
+     
      form_post(0, "Johnny Appleseed", "Lore Ipsum", 5);
      form_post(0, "Johnny Appleseed", "Test Test Test", 10000);
      form_post(1, "Dan McDan", "DanDanDanDanDanDanDanDanDanDanDanDanDanDanDanDan", 3);
