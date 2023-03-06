@@ -5,11 +5,11 @@
   <!--Page Title-->
   <title></title>
   <!--Link to StyleSheet-->
-  <link href="css/style.css" rel="stylesheet" />
+  <link href="style.css" rel="stylesheet" />
 
-  <link href="css/navbar.css" rel="stylesheet" />
+  <link href="navbar.css" rel="stylesheet" />
 
-  <link href="css/post.css" rel="stylesheet" />
+  <link href="post.css" rel="stylesheet" />
   
 
 </head>
@@ -19,10 +19,9 @@
 <!--  -->
 
 <!-- Nav bar -->
-<?php require 'navbar.php'; ?>
-
-
-
+<?php
+     require_once("navbar.php");
+?>
 <!-- post -->
 
 <?php

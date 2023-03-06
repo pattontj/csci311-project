@@ -16,7 +16,7 @@
 <body>
 
 <!-- Included Navbar -->
-<?php require 'navbar.php';?>
+<?php require_once( 'navbar.php' );?>
 <?php
 
 echo "

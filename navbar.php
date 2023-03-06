@@ -1,8 +1,8 @@
 
 <!-- Nav bar -->
 <div class='navbar'> 
-    <div><text> Home </text></div>
-    <div><text> Test </text></div> 
+    <div><a> Home </a></div>
+    <div><a href='./profilePage.php'> Profile </a></div>
 
     <form action="future script name here" method="POST">
         <input type="search" />
