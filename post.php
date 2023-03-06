@@ -2,7 +2,7 @@
 
 <?php
 
-// Purpose: generate a single post in HTML using given parameters.
+//purpose: generate a single post in HTML using given parameters.
 //          Parameters should be fetched from the database, not inside this function.
 
 // posterID:   ID of the person who posted

@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <!--Page Title-->
-  <title></title>
-
-  <!-- included style sheets -->
-  <link href="navbar.css" rel="stylesheet" />
-</head>
-<body>
 
 <!-- Nav bar -->
 <div class='navbar'> 
@@ -22,9 +11,6 @@
 
     <div class='navUserIcon'>
         <img src="assets/default_pfp.svg"/>
+        <!-- Drop down menu: edit profile, logout, etc. -->
     </div>
 </div>
-
-
-</body>
-</html>

@@ -1,7 +1,4 @@
 
-
-
-
 <?php
 
 include("post.php");
