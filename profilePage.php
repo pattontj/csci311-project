@@ -16,25 +16,27 @@
 <body>
 
 <!-- Included Navbar -->
-<?php require 'navbar.php'; ?>
+<?php require 'navbar.php';?>
+<?php
 
+echo "
 <!-- User Profile -->
-<div class="profile">
+<div class=\"profile\">
     <div>
-        <img src="assets/default_pfp.svg" class="profileIcon"/><br>
+        <img src=\"assets/default_pfp.svg\" class=\"profileIcon\"/><br>
         <text>Username username</text>
     </div>
-    <div class="description">
+    <div class=\"description\">
         <text>Torem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in nisl luctus ante consequat rutrum. Morbi porta mi quis quam sagittis imperdiet in id nisl. Maecenas vel venenatis neque. Quisque facilisis luctus dignissim. Aliquam commodo arcu vitae urna porttitor, id accumsan massa mollis. Pellentesque mollis quis nunc a interdum. Pellentesque.</text>
     </div>
-    <div style="float: right; margin-top: 11px;">
+    <div style=\"float: right; margin-top: 11px;\">
         <text>Dislikes</text>
     </div>
 
 </div>
 
-<!-- List of posts the User made-->
-<!-- Will be added when posts are working -->
+<!-- List of posts the User made-->"
+?>
 
 </body>
 </html>

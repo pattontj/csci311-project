@@ -20,5 +20,5 @@ include("post.php");
     sleep(3);
 
     // send you back to the main page
-   // header("Location: mainPage.php");
+    header("Location: mainPage.php");
 ?>
