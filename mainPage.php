@@ -5,11 +5,11 @@
   <!--Page Title-->
   <title></title>
   <!--Link to StyleSheet-->
-  <link href="style.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
 
-  <link href="navbar.css" rel="stylesheet" />
+  <link href="css/navbar.css" rel="stylesheet" />
 
-  <link href="post.css" rel="stylesheet" />
+  <link href="css/post.css" rel="stylesheet" />
   
 
 </head>

@@ -1,7 +1,7 @@
 
 <!-- Nav bar -->
 <div class='navbar'> 
-    <div><a> Home </a></div>
+    <div><a href="./mainPage.php"> Home </a></div>
     <div><a href='./profilePage.php'> Profile </a></div>
 
     <form action="future script name here" method="POST">
