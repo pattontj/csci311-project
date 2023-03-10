@@ -17,26 +17,31 @@
 
 <!-- Included Navbar -->
 <?php require_once( 'navbar.php' );?>
-<?php
-
-echo "
 <!-- User Profile -->
+<?php
+//PlaceHolder Variables
+$userName = "Johnny Appleseed";
+$description = "Torem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in nisl luctus ante consequat rutrum. Morbi porta mi quis quam sagittis imperdiet in id nisl. Maecenas vel venenatis neque. Quisque facilisis luctus dignissim. Aliquam commodo arcu vitae urna porttitor, id accumsan massa mollis. Pellentesque mollis quis nunc a interdum. Pellentesque.";
+$dislikes = 5453;
+$profilePic = "assets/default_pfp.svg";
+echo "
 <div class=\"profile\">
     <div>
-        <img src=\"assets/default_pfp.svg\" class=\"profileIcon\"/><br>
-        <text>Username username</text>
+        <img src= $profilePic class=\"profileIcon\"/><br>
+        <div class=\"userName\">
+        $userName
+        </div>
     </div>
     <div class=\"description\">
-        <text>Torem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in nisl luctus ante consequat rutrum. Morbi porta mi quis quam sagittis imperdiet in id nisl. Maecenas vel venenatis neque. Quisque facilisis luctus dignissim. Aliquam commodo arcu vitae urna porttitor, id accumsan massa mollis. Pellentesque mollis quis nunc a interdum. Pellentesque.</text>
+        $description
     </div>
     <div style=\"float: right; margin-top: 11px;\">
-        <text>Dislikes</text>
+        <text>Dislikes: </text>$dislikes
     </div>
 
-</div>
-
-<!-- List of posts the User made-->"
+</div>"
 ?>
+<!-- List of posts the User made-->
 
 </body>
 </html>
