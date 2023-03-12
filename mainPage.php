@@ -22,23 +22,67 @@
 <?php
      require_once("navbar.php");
 ?>
+         
 <!-- post -->
-
 <?php
 
 
-$loreIpsum="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+// Fetch the post component (form_post)
+require_once("post.php");
+// Fetch the component that allows a user to make a new post
+require_once("createPost.php");
+// Fetch DB information
+require_once("database.php");
 
-     require_once("post.php");
 
-     require_once("createPost.php");
-     
-     form_post(0, "Johnny Appleseed", "Lore Ipsum", 5);
-     form_post(0, "Johnny Appleseed", "Test Test Test", 10000);
-     form_post(1, "Dan McDan", "DanDanDanDanDanDanDanDanDanDanDanDanDanDanDanDan", 3);
-     form_post(0, "Ada Lovelace", $loreIpsum, 1);
+// Connect to the DB
+try {
+    $dbh = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "<br/> <a style='margin:20%;text-align:center;'>Debug Info: Connected successfully </a><br/>";
 
- ?>
+} catch ( PDOException $e ) {
+    echo "Connection failed: ". $e->getMessage();
+}
+
+
+//--------------------- DO NOT TOUCH THIS SECTION -------------------------
+// Section: Fetch Posts from Database
+
+//TODO(Tyler): Fetch dislikes for post
+
+$page = 2;
+$pageLimit = 10;
+$pageOffset = $page-1 * $pageLimit;
+
+// Selects the post ID, content, and joins the user's username, orders by datetimestamp
+$testQuery = "SELECT p.ID, p.PostContent, p.Date, UserProfile.Username ".
+     "FROM (SELECT * FROM Post LIMIT 0,10) as p ".
+     "LEFT JOIN UserProfile ON p.UserID = UserProfile.ID ".
+           "ORDER BY p.Date DESC";
+
+
+try {
+    $result = $dbh->query($testQuery);
+} catch ( PDOException $e ) {
+    echo "Error: ". $e->getMessage();
+}
+
+//------------------------------------------------------------------------
+
+// For each response, grab post information and pass to the form post component
+foreach($result as $row) {
+
+    $userId =      $row["ID"];
+    $postContent = $row["PostContent"];
+    $postName =    $row["Username"];
+    $postDate =    $row["Date"];
+
+    form_post($userId, $postName, $postContent, $postDate);    
+}
+
+?>
 
 </body>
 </html>

@@ -1,0 +1,34 @@
+
+CREATE TABLE UserProfile (
+ID int(9) NOT NULL AUTO_INCREMENT,
+Email varchar(255) NOT NULL,
+Username varchar(255) NOT NULL,
+PasswordHash varchar(64) NOT NULL, 
+Status int,
+PRIMARY KEY (ID)
+);
+
+CREATE TABLE Post (
+ID int(12) NOT NULL AUTO_INCREMENT,
+UserID int(9) NOT NULL,
+PostContent varchar(255) NOT NULL,
+Date Timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY (ID),
+FOREIGN KEY (UserID) REFERENCES UserProfile(ID)
+);
+
+CREATE TABLE Dislike (
+UserID int(9) NOT NULL,
+PostID int(12) NOT NULL,
+FOREIGN KEY (UserID) REFERENCES UserProfile(ID),
+FOREIGN KEY (PostID) REFERENCES Post(ID)
+);
+
+CREATE TABLE Subpost (
+ParentPostID int(12) NOT NULL AUTO_INCREMENT,
+UserID int(9) NOT NULL,
+PostContent varchar(255) NOT NULL,
+Date Timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (ParentPostID) REFERENCES Post(ID),
+FOREIGN KEY (UserID) REFERENCES UserProfile(ID)
+);

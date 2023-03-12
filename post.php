@@ -8,13 +8,16 @@
 // posterID:   ID of the person who posted
 // posterName: Text name of the person who made the post
 // content:    Text content of the post
+// date:       Date TimeStamp of the post
 // dislikes:   number of dislikes on post.
-function form_post($posterID=0, $posterName="Name User", $content = "Lore Ipsum",
+function form_post($posterID=0, $posterName="Name User",
+                   $content = "Lore Ipsum",
+                   $date,
                    $dislikes=0) {
 
 // TOOD: add params for the poster's profile icon, and possibly if you have disliked the post
 //       so we don't have to double query and change it with JS or something.
-
+    
     echo "
     <div class='post'>
 
@@ -23,6 +26,11 @@ function form_post($posterID=0, $posterName="Name User", $content = "Lore Ipsum"
             <img src='assets/default_pfp.svg' class=userIcon height='40px'/>
         </div>
     <p style='vertical-align: 80%;'>$posterName</p>   
+    
+    <div style='float:right;'>
+        <a> $date </a>
+    </div>
+
     </div>
     
     <text class='postContent'> $content </text>
