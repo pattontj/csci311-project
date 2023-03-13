@@ -1,5 +1,16 @@
 /* style sheet for mainPage and possibliy others */
 
+/*Centers a div element on a screen*/
+.center {
+	width: 50%;
+	display: block;
+	margin: auto;
+
+	align-content: center;
+}
+
+
+
 
 /*-------------------------For profile page--------------------------*/
 /*General Formatting*/
