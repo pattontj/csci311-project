@@ -32,7 +32,7 @@ require_once("post.php");
 // Fetch the component that allows a user to make a new post
 require_once("createPost.php");
 // Fetch DB information
-require_once("database.php");
+include("database.php");
 
 
 // Connect to the DB
@@ -62,11 +62,11 @@ $testQuery = "SELECT p.ID, p.PostContent, p.Date, UserProfile.Username ".
      "LEFT JOIN UserProfile ON p.UserID = UserProfile.ID ".
            "ORDER BY p.Date DESC";
 
-
 try {
     $result = $dbh->query($testQuery);
 } catch ( PDOException $e ) {
     echo "Error: ". $e->getMessage();
+    die();
 }
 
 //------------------------------------------------------------------------
@@ -81,6 +81,11 @@ foreach($result as $row) {
 
     form_post($userId, $postName, $postContent, $postDate);    
 }
+
+// close connection to DB
+$dbh = null;
+$result = null;
+
 
 ?>
 
