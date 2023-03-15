@@ -32,8 +32,9 @@
 .postContent {
     margin-top: 15px;
     display: inline-block;
-    overflow: hidden;
-    overflow-wrap: normal;
+    width: 575px;
+    overflow: auto;
+    overflow-wrap: break-word;
 
 }
 

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +13,7 @@
 </head>
 <body>
 	<div class="center">
+	<!-- Once user selects Login they will be redirected to their home page -->
 	<form action="loginHandler.php" method="POST">
 		<label for="userName">UserName:</label><br>
 		<input type="text" id="userName" name="userName" placeholder="Karl_Wheezer" size="20" required><br><br>
