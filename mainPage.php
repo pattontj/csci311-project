@@ -71,6 +71,8 @@ try {
 
 //------------------------------------------------------------------------
 
+echo "<div>";
+
 // For each response, grab post information and pass to the form post component
 foreach($result as $row) {
 
@@ -81,7 +83,7 @@ foreach($result as $row) {
 
     form_post($userId, $postName, $postContent, $postDate);    
 }
-
+echo "</div>";
 // close connection to DB
 $dbh = null;
 $result = null;
