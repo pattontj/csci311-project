@@ -1,13 +1,17 @@
 
 <?php
+session_start();
+
 echo "<link href='css/post.css' rel='stylesheet'>";
 
 include("post.php");
 include("database.php");
 
+
+
 // use some placeholder data where applicable
-$userID = 1;
-$uName = "Johhny Appleseed";
+$userID = $_SESSION["uID"];
+$uName = $_SESSION["username"];
 $content = $_POST['postBox'];
 $dislikes = 0;
 

@@ -9,8 +9,11 @@
         <div>
             <img src='assets/default_pfp.svg' class=userIcon height='40px'/>
         </div>
-    <p style='vertical-align: 80%;'>'$posterName'</p>   
-    </div>
+        <?php
+          session_start();
+          echo "<p style='vertical-align: 80%;'>".$_SESSION["username"]."</p>";   
+         ?>
+          </div>
 
      <!--// autocomplete off: https://stackoverflow.com/questions/48948460/reload-the-page-php-without-fill-the-text-boxes-with-old-data-php -->
     <form action='newPost.php' method='post' style='display: inline-block;'>

@@ -28,12 +28,14 @@
 
 
 // Fetch the post component (form_post)
-require_once("post.php");
+include("post.php");
 // Fetch the component that allows a user to make a new post
-require_once("createPost.php");
+include("createPost.php");
 // Fetch DB information
 include("database.php");
 
+// start session
+// session_start();
 
 // Connect to the DB
 try {
@@ -58,7 +60,7 @@ $pageOffset = $page-1 * $pageLimit;
 
 // Selects the post ID, content, and joins the user's username, orders by datetimestamp
 $testQuery = "SELECT p.ID, p.PostContent, p.Date, UserProfile.Username ".
-     "FROM (SELECT * FROM Post LIMIT 0,10) as p ".
+     "FROM (SELECT * FROM Post ORDER BY ID DESC LIMIT 10) as p ".
      "LEFT JOIN UserProfile ON p.UserID = UserProfile.ID ".
            "ORDER BY p.Date DESC";
 
