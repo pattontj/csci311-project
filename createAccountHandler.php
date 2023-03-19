@@ -50,6 +50,7 @@ if ($res) {
 
 
 //------------------------------- SECTION: Image Uploading -------------------------------------------
+// Written with heavy reference to this page: https://www.w3schools.com/php/php_file_upload.asp
 
 if ( !empty($_FILES["pfp"]["name"]) && !empty($_FILES["pfp"]["tmp_name"]) ) {
 
@@ -97,6 +98,28 @@ if ( !empty($_FILES["pfp"]["name"]) && !empty($_FILES["pfp"]["tmp_name"]) ) {
         }    
     }
 
+
+    // CHECK: cap file size at 5MB
+    if ($_FILES["pfp"]["size"] > 5000000) {
+        echo "Error creating account: File is too large! Limit is 5MB <br />";
+        $uploadOK = false;
+        die();
+        // TODO: do something better than killing the account creation process if someone messes up 
+    }
+
+    // CHECK: only allow image file formats
+    if ( $imageFileType != "jpg" &&
+         $imageFileType != "png" &&
+         $imageFileType != "jpeg" &&
+         $imageFileType != "svg" &&
+         $imageFileType != "gif"
+    ) {
+        echo "Error creating account: Profile picture image must be jpg/png/svg/gif!";
+        $uploadOK = false;
+        die();
+    }
+    
+    
     // if image checks pass, attempt to upload 
     if ($uploadOK == true) {
         if ( move_uploaded_file($_FILES["pfp"]["tmp_name"], $targetFile) ) {       
@@ -134,11 +157,13 @@ $pwdTest = password_verify($pwd, $pwdHash);
 echo "pwdTest: $pwdTest";
 // ----------------------------------------------
 
+
+// Run insert query to make user account 
+
 $insertQuery = "INSERT INTO UserProfile ".
     "(Email, Username, PasswordHash, Status, ProfilePicture) VALUES ".
     "(?, ?, ?, 0, ?)";
 
-/*
 try {
     $insert = $dbh->prepare($insertQuery);
     $insert->execute([$email, $uName, $pwdHash, $imgNo]);
@@ -147,8 +172,5 @@ try {
 } catch (PDOException $e) {
     echo "Insert failed: " . $e->getMessage();
 }
-*/
-
-
 
 ?>
