@@ -49,111 +49,99 @@ if ($res) {
 }
 
 
+//------------------------------- SECTION: Image Uploading -------------------------------------------
 
-// TODO: Handle image file uploading
+if ( !empty($_FILES["pfp"]["name"]) && !empty($_FILES["pfp"]["tmp_name"]) ) {
 
-
-// Fetches the current highest image ID, adds one, names the next file max(ID)+1.extention
-try {
-    $res = $dbh->prepare("SELECT * FROM Image ORDER BY ID DESC LIMIT 1");
-    $res->execute();
-} catch (PDOException $e) {
-    echo "Query error: ". $e->getMessage();
-    die();
-}
-
-try {
-    $imgNo = $res->fetch(PDO::FETCH_ASSOC)["ID"];
-    
-} catch (PDOException $e) {
-    echo "Query error: ". $e->getMessage();
-    die();
-}
-
-
-if (!$res) {
-    echo "NO RES <br />";
-    die();
-}
-
-
-// track the filetype of the image
-$imageFileType = strtolower(pathinfo($_FILES["pfp"]["name"], PATHINFO_EXTENSION));
-
-// set up the target path/filename on the server
-$imgNo = $imgNo + 1;
-$targetDir = "img/";
-$targetFile = "img/".$imgNo .".". $imageFileType;
-
-// upload flag
-$uploadOK = true;
-
-
-
-// TODO: Check more conditions on
-
-if ( isset($_POST["create"]) ) {
-    echo "set ". $_POST["create"]. "<br />";
-
-    $check = getimagesize($_FILES["pfp"]["tmp_name"]);
-
-    if ($check) {
-        echo "File is an image - ". $check["mime"]. "<br />";
-    }
-    else {
-        echo "File is not an image! <br />";
-        $uploadOK = false;
+    // Fetches the current highest image ID, adds one, names the next file max(ID)+1.extention
+    try {
+        $res = $dbh->prepare("SELECT * FROM Image ORDER BY ID DESC LIMIT 1");
+        $res->execute();
+    } catch (PDOException $e) {
+        echo "Query error: ". $e->getMessage();
         die();
-    }    
-}
+    }
 
+    try {
+        $imgNo = $res->fetch(PDO::FETCH_ASSOC)["ID"];
+    
+    } catch (PDOException $e) {
+        echo "Query error: ". $e->getMessage();
+        die();
+    }
 
-/*
-if ( isset($_POST["create"]) ) {
-    $check = getimagesize($_FILES["pfp"]["tmp_name"]);
+    // track the filetype of the image
+    $imageFileType = strtolower(pathinfo($_FILES["pfp"]["name"], PATHINFO_EXTENSION));
 
-    if ($check !== false) {
-        echo "File is an image - ". $check["mime"]
-        $uploadOK = 1;
+    // set up the target path/filename on the server
+    $imgNo = $imgNo + 1;
+    $targetDir = "img/";
+    $targetFile = "img/".$imgNo .".". $imageFileType;
+
+    // upload flag
+    $uploadOK = true;
+
+    // TODO: Check more conditions on images
+    if ( isset($_POST["create"]) ) {
+        echo "set ". $_POST["create"]. "<br />";
+
+        $check = getimagesize($_FILES["pfp"]["tmp_name"]);
+
+        if ($check) {
+            echo "File is an image - ". $check["mime"]. "<br />";
+        }
+        else {
+            echo "File is not an image! <br />";
+            $uploadOK = false;
+            die();
+        }    
+    }
+
+    // if image checks pass, attempt to upload 
+    if ($uploadOK == true) {
+        if ( move_uploaded_file($_FILES["pfp"]["tmp_name"], $targetFile) ) {       
+            try {
+                $ins = $dbh->prepare("INSERT INTO Image (Filename) VALUES (?)");
+                $ins->execute([$targetFile]);
+            } catch (PDOException $e) {
+                echo "Insert error: ". $e->getMessage();
+                die();
+            }
+            echo "File has been uploaded.";
+        }
     }
     else {
-        echo "File is not an image";
-        $uploadOK = 0;
+        echo "Did not upload! <br />";
     }
 }
-*/
+//------------------------------------------------------------------------------------
 
-if ($uploadOK == true) {
-    if ( move_uploaded_file($_FILES["pfp"]["tmp_name"], $targetFile) ) {
-       
-        try {
-            $ins = $dbh->prepare("INSERT INTO Image (Filename) VALUES (?)");
-            $ins->execute([$targetFile]);
-        } catch (PDOException $e) {
-            echo "Insert error: ". $e->getMessage();
-            die();
-        }
-        
-        echo "File has been uploaded.";
-    }
-}
-else {
-    echo "Did not upload! <br />";
+
+// NOTE: BCRYPT will always return a length 60 string for hashed PWDs.
+try {
+    $pwdHash = password_hash($pwd, PASSWORD_BCRYPT);
+} catch (ValueError $e) {
+    echo "Error in hashing password: ". $e->getMessage();
+    die();
 }
 
-// TODO: has password here
-$pwdHash = "FAKE_PASSWORD_HASH_EX";
 
+// echo "pwd: ". $pwdHash. "<br />";
 
+// NOTE/TODO: REMOVE FROM PRODUCTION CODE
+// Run a test that the password can be verified
+$pwdTest = password_verify($pwd, $pwdHash);
+echo "pwdTest: $pwdTest";
+// ----------------------------------------------
 
 $insertQuery = "INSERT INTO UserProfile ".
-    "(Email, Username, PasswordHash, Status) VALUES ".
-    "(?, ?, ?, 0)";
+    "(Email, Username, PasswordHash, Status, ProfilePicture) VALUES ".
+    "(?, ?, ?, 0, ?)";
 
 /*
 try {
     $insert = $dbh->prepare($insertQuery);
-    $insert->execute([$email, $uName, $pwdHash]);
+    $insert->execute([$email, $uName, $pwdHash, $imgNo]);
     
 
 } catch (PDOException $e) {
