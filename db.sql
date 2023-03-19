@@ -3,9 +3,11 @@ CREATE TABLE UserProfile (
 ID int(9) NOT NULL AUTO_INCREMENT,
 Email varchar(255) NOT NULL,
 Username varchar(255) NOT NULL,
-PasswordHash varchar(64) NOT NULL, 
+PasswordHash varchar(64) NOT NULL,
+ProfilePicture int(9) NOT NULL DEFAULT 0,
 Status int,
-PRIMARY KEY (ID)
+PRIMARY KEY (ID),
+FOREIGN KEY (ProfilePicture) REFERENCES Image(ID) 
 );
 
 CREATE TABLE Post (
@@ -31,4 +33,10 @@ PostContent varchar(255) NOT NULL,
 Date Timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (ParentPostID) REFERENCES Post(ID),
 FOREIGN KEY (UserID) REFERENCES UserProfile(ID)
+);
+
+CREATE TABLE Image (
+ID int(9) NOT NULL AUTO_INCREMENT,
+Filename varchar(100) NOT NULL,
+PRIMARY KEY (ID)
 );
