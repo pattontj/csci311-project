@@ -22,7 +22,13 @@
      <input type="submit" value="Login">
      <input type="reset" value="Reset">
 	</form>
-	</div>
+
+     <div>
+     <br />
+     <a href="./createAccountPage.php">Create account</a>
+     </div>
+     
+     </div>
 	
 	
 	
