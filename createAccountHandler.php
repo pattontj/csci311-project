@@ -90,8 +90,7 @@ $uploadOK = true;
 
 
 
-echo $targetFile. "  <br /> <br />";
-
+// TODO: Check more conditions on
 
 if ( isset($_POST["create"]) ) {
     echo "set ". $_POST["create"]. "<br />";
@@ -105,17 +104,9 @@ if ( isset($_POST["create"]) ) {
         echo "File is not an image! <br />";
         $uploadOK = false;
         die();
-    }
-    
+    }    
 }
 
-
-if ( isset($_FILES["pfp"]["name"]) ) {
-    echo "is set file ".$_FILES["pfp"]["name"]." <br />";
-}
-if ( isset($_FILES["pfp"]["tmp_name"]) ) {
-    echo "is set file  tmp name ".$_FILES["pfp"]["name"]." <br />";
-}
 
 /*
 if ( isset($_POST["create"]) ) {
