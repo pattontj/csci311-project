@@ -57,6 +57,8 @@ if (password_verify($pwd, $pwdHash)) {
                                 
 } else {
     echo "Username or Password are incorrect.";
+    $_SESSION["failedAttempt"] = true;
+    header("Location: loginPage.php");
     die();
 }
 

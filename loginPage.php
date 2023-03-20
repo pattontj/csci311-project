@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +18,16 @@
 	<div class="center">
 	<!-- Once user selects Login they will be redirected to their home page -->
 	<form action="loginHandler.php" method="post">
-		<label for="userName">UserName:</label><br>
+
+
+     <?php
+     if ($_SESSION["failedAttempt"] || $_SESSION["failedAttempt"] == true) {
+         echo "<a>Login attempt failed</a> <br/> <br />";
+         $_SESSION["failedAttempt"] = false;
+     }
+     ?>
+     
+     <label for="userName">UserName:</label><br>
 		<input type="text" id="userName" name="userName" placeholder="Karl_Wheezer" size="20" required><br><br>
 		<label for="password">Password:</label><br>
 		<input type="password" id="password" name="password" placeholder="Enter_Password" size="20" required><br><br>
