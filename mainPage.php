@@ -1,6 +1,7 @@
 <?php
 session_start();
 if (!$_SESSION["uID"] || !$_SESSION["username"]) {
+    header("Location: loginPage.php");
     echo "<a href='./loginPage.php'>Please login to continue</a>";
     die();
 }
