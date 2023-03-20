@@ -27,14 +27,44 @@ if (!$_SESSION["uID"] || !$_SESSION["username"]) {
 <?php require_once( 'navbar.php' );?>
 <!-- User Profile -->
 <?php
+
+//fetch dtabase info
+include("database.php");
+// Connect to the DB
+try {
+    $dbh = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "<br/> <a style='margin:20%;text-align:center;'>Debug Info: Connected successfully </a><br/>";
+
+} catch ( PDOException $e ) {
+    echo "Connection failed: ". $e->getMessage();
+}
+
+try{
+	$query = $dbh->prepare("SELECT Description FROM UserProfile WHERE ID = ? LIMIT 1");
+	$query->bindParam(1, $_SESSION["uID"]);
+	$query->execute();
+} catch ( PDOException $e ) {
+	echo "Query failed: ". $e->getMessage();
+}
+
+try {
+    $values= $query->fetch(PDO::FETCH_ASSOC);
+    $description =    $values["Description"];
+}catch (PDOException $e) {
+    echo "Fetch error: ". $e->getMessage();
+}
+
 //PlaceHolder Variables
 $userName = "Johnny Appleseed";
-$description = "Torem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in nisl luctus ante consequat rutrum. Morbi porta mi quis quam sagittis imperdiet in id nisl. Maecenas vel venenatis neque. Quisque facilisis luctus dignissim. Aliquam commodo arcu vitae urna porttitor, id accumsan massa mollis. Pellentesque mollis quis nunc a interdum. Pellentesque.";
+
 $dislikes = 5453;
 $profilePic = "assets/default_pfp.svg";
 echo "
 <div class=\"profile\">
     <div>
+		
         <img src= $profilePic class=\"profileIcon\"/><br>
         <div class=\"userName\">
         $userName
