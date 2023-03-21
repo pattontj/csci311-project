@@ -58,24 +58,36 @@ try {
 }
 
 
+
+
+if ( isset($_GET["page"]) ) {
+    $page = $_GET["page"];
+    $pagecount = $_GET["page"];
+    
+    if ( !is_numeric($page) || $page <= 0 ) {
+        header("Location: ./mainPage.php");
+    }
+}
+else {
+    $page = 1;
+    $pagecount = 1;
+}
+
+$pgTmp = $page - 1;
+$pageLimit = 10;
+$pageIdx = $pgTmp * $pageLimit;
+
+
 //--------------------- DO NOT TOUCH THIS SECTION -------------------------
 // Section: Fetch Posts from Database
 
 //TODO(Tyler): Fetch dislikes for post
 
-$page = 2;
-$pageLimit = 10;
-$pageOffset = $page-1 * $pageLimit;
+
 
 // Selects the post ID, content, and joins the user's username, orders by datetimestamp
-$testQuery = "SELECT p.ID, p.PostContent, p.Date, UserProfile.Username ".
-     "FROM (SELECT * FROM Post ORDER BY ID DESC LIMIT 10) as p ".
-     "LEFT JOIN UserProfile ON p.UserID = UserProfile.ID ".
-           "ORDER BY p.Date DESC";
-
-
 $query = "SELECT p.ID, p.PostContent, p.Date, UserProfile.Username, Image.Filename as Filename ".
-       "FROM (SELECT * FROM Post ORDER BY ID DESC LIMIT 10) as p ".
+       "FROM (SELECT * FROM Post ORDER BY ID DESC LIMIT ?,10) as p ".
        "LEFT JOIN UserProfile ON p.UserID = UserProfile.ID ".
        "LEFT JOIN Image ON UserProfile.ProfilePicture = Image.ID ".
        "ORDER BY p.Date DESC";
@@ -84,11 +96,17 @@ $query = "SELECT p.ID, p.PostContent, p.Date, UserProfile.Username, Image.Filena
 
        
 try {
-    $result = $dbh->query($query);
+    $result = $dbh->prepare($query);
+    $result->bindParam(1, $pageIdx, PDO::PARAM_INT);
+    $result->execute();
+    $count = $result->rowCount();
+    
 } catch ( PDOException $e ) {
     echo "Error: ". $e->getMessage();
     die();
 }
+
+
 
 //------------------------------------------------------------------------
 
@@ -106,6 +124,23 @@ foreach($result as $row) {
     form_post($userId, $postName, $postContent, $postDate, $pfpPath);    
 }
 echo "</div>";
+
+/*
+if ($page > 1) {
+    echo " <a class='pageBtn' > </a>";
+}
+
+if ($count < $pageLimit) {
+    echo " <a class='pageBtn' > Next Page</a>";
+}
+*/
+
+if ($count == $pageLimit) {
+    $more = $page+1;
+    echo " <a class='pageBtn' href='mainPage.php?page=$more'> Load More... </a>";
+}
+    
+
 // close connection to DB
 $dbh = null;
 $result = null;
@@ -115,3 +150,7 @@ $result = null;
 
 </body>
 </html>
+
+<?php
+    
+?>

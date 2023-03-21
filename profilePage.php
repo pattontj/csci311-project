@@ -41,9 +41,18 @@ try {
     echo "Connection failed: ". $e->getMessage();
 }
 
+// fetch the GET request for the user profile
+
+if (!isset($_GET["user"])) {
+    $usr = $_SESSION["username"];
+}
+else {
+    $usr = $_GET["user"];
+}
+
 try{
-	$query = $dbh->prepare("SELECT Description FROM UserProfile WHERE ID = ? LIMIT 1");
-	$query->bindParam(1, $_SESSION["uID"]);
+	$query = $dbh->prepare("SELECT Description, Image.Filename as Filename FROM UserProfile INNER JOIN Image ON ProfilePicture = Image.ID WHERE Username = ? LIMIT 1");
+	$query->bindParam(1, $usr, PDO::PARAM_STR);
 	$query->execute();
 } catch ( PDOException $e ) {
 	echo "Query failed: ". $e->getMessage();
@@ -51,15 +60,17 @@ try{
 
 try {
     $values= $query->fetch(PDO::FETCH_ASSOC);
-    $description =    $values["Description"];
+    $description = $values["Description"];
+    $profilePic  = $values["Filename"];
 }catch (PDOException $e) {
     echo "Fetch error: ". $e->getMessage();
 }
 
 //PlaceHolder Variables
-$userName = $_SESSION["username"];
+$userName = $usr;
 $dislikes = 5453;
-$profilePic = $_SESSION["profilePicture"];
+
+
 echo "
 <div class=\"profile\">
     <div>

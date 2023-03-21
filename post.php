@@ -26,7 +26,7 @@ function form_post($posterID=0, $posterName="Name User",
         <div>
             <img src=$imgPath class=userIcon width='40px' height='40px'/>
         </div>
-    <p style='vertical-align: 80%;'>$posterName</p>   
+    <a style='vertical-align: 80%;' href='profilePage.php?user=$posterName'>$posterName</a>   
     
     <div style='float:right;'>
         <a> $date </a>

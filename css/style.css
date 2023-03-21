@@ -10,6 +10,20 @@
 }
 
 
+.pageBtn {
+    margin-left:100px;
+    margin-right: 100px;
+    margin-top: 5px;
+    border: solid 2px black;
+    border-radius: 10px;
+    display: block;
+    padding: 25px;
+
+    width: 575px;
+    min-height: 15px;
+    text-align: center;
+
+}
 
 
 /*-------------------------For profile page--------------------------*/
