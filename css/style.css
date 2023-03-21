@@ -1,14 +1,18 @@
 /* style sheet for mainPage and possibliy others */
 
-/*Centers a div element on a screen*/
+/*Centers a div element and its contents on a screen*/
 .center {
 	width: 50%;
-	display: block;
-	margin: auto;
-
-	align-content: center;
+	position: absolute;
+	left: 50%;
+	margin-left: -100px;
 }
 
+/*---------Making Login and create Account Page look nice-------------*/
+.loginCreate > * {
+	margin-top:20%;
+
+	
 
 .pageBtn {
     margin-left:100px;
@@ -26,7 +30,7 @@
 }
 
 
-/*-------------------------For profile page--------------------------*/
+/*-------------------------For profile page---------------------------*/
 /*General Formatting*/
 .profile {
     margin-left:100px;
