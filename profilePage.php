@@ -72,7 +72,7 @@ echo "
     <div class=\"description\">
         $description
     </div>
-    <div style=\"float: right; margin-top: 11px;\">
+    <div class=\"dislikes\">
         <text>Dislikes: </text>$dislikes
     </div>
 

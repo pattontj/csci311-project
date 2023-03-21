@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!-- Nav bar -->
 <div class='navbar'> 
     <div><a href="./mainPage.php"> Home </a></div>
@@ -10,8 +12,10 @@
         <button type="submit" > Go </button>
     </form>
 
-    <div class='navUserIcon'>
-        <img src="assets/default_pfp.svg"/>
+    <div>
+		<?php
+			echo "<img src=".$_SESSION['profilePicture']." class=navUserIcon width='40px' height='40px'/>";
+        ?>
         <!-- Drop down menu: edit profile, logout, etc. -->
     </div>
 </div>
