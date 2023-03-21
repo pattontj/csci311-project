@@ -130,12 +130,17 @@ if ( !empty($_FILES["pfp"]["name"]) && !empty($_FILES["pfp"]["tmp_name"]) ) {
                 echo "Insert error: ". $e->getMessage();
                 die();
             }
+            // edit perms so php will be able to read our stored images
+            chmod($targetFile, 0644);
             echo "File has been uploaded.";
         }
     }
     else {
         echo "Did not upload! <br />";
     }
+}
+else {
+    $imgNo = 1;
 }
 //------------------------------------------------------------------------------------
 

@@ -7,8 +7,10 @@
 
     <div class='userInfo'>
         <div>
-            <img src='assets/default_pfp.svg' class=userIcon height='40px'/>
-        </div>
+          <?php
+          echo "<img src=".$_SESSION['profilePicture']." class=userIcon width='40px' height='40px'/>";
+          ?>
+          </div>
         <?php
           session_start();
           echo "<p style='vertical-align: 80%;'>".$_SESSION["username"]."</p>";   

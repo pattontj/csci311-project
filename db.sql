@@ -4,8 +4,9 @@ ID int(9) NOT NULL AUTO_INCREMENT,
 Email varchar(255) NOT NULL,
 Username varchar(255) NOT NULL,
 PasswordHash varchar(64) NOT NULL,
-ProfilePicture int(9) NOT NULL DEFAULT 0,
+ProfilePicture int(9) NOT NULL DEFAULT 1,
 Status int,
+Description varchar(500) NOT NULL DEFAULT 'Hello, world!',
 PRIMARY KEY (ID),
 FOREIGN KEY (ProfilePicture) REFERENCES Image(ID) 
 );

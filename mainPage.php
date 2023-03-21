@@ -73,8 +73,18 @@ $testQuery = "SELECT p.ID, p.PostContent, p.Date, UserProfile.Username ".
      "LEFT JOIN UserProfile ON p.UserID = UserProfile.ID ".
            "ORDER BY p.Date DESC";
 
+
+$query = "SELECT p.ID, p.PostContent, p.Date, UserProfile.Username, Image.Filename as Filename ".
+       "FROM (SELECT * FROM Post ORDER BY ID DESC LIMIT 10) as p ".
+       "LEFT JOIN UserProfile ON p.UserID = UserProfile.ID ".
+       "LEFT JOIN Image ON UserProfile.ProfilePicture = Image.ID ".
+       "ORDER BY p.Date DESC";
+
+
+
+       
 try {
-    $result = $dbh->query($testQuery);
+    $result = $dbh->query($query);
 } catch ( PDOException $e ) {
     echo "Error: ". $e->getMessage();
     die();
@@ -87,12 +97,13 @@ echo "<div>";
 // For each response, grab post information and pass to the form post component
 foreach($result as $row) {
 
-    $userId =      $row["ID"];
+    $userId      = $row["ID"];
     $postContent = $row["PostContent"];
-    $postName =    $row["Username"];
-    $postDate =    $row["Date"];
-
-    form_post($userId, $postName, $postContent, $postDate);    
+    $postName    = $row["Username"];
+    $postDate    = $row["Date"];
+    $pfpPath     = $row["Filename"];
+    
+    form_post($userId, $postName, $postContent, $postDate, $pfpPath);    
 }
 echo "</div>";
 // close connection to DB

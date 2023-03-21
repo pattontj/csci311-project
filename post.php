@@ -13,6 +13,7 @@
 function form_post($posterID=0, $posterName="Name User",
                    $content = "Lore Ipsum",
                    $date,
+                   $imgPath,
                    $dislikes=0) {
 
 // TOOD: add params for the poster's profile icon, and possibly if you have disliked the post
@@ -23,7 +24,7 @@ function form_post($posterID=0, $posterName="Name User",
 
     <div class='userInfo'>
         <div>
-            <img src='assets/default_pfp.svg' class=userIcon height='40px'/>
+            <img src=$imgPath class=userIcon width='40px' height='40px'/>
         </div>
     <p style='vertical-align: 80%;'>$posterName</p>   
     

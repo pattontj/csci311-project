@@ -57,10 +57,9 @@ try {
 }
 
 //PlaceHolder Variables
-$userName = "Johnny Appleseed";
-
+$userName = $_SESSION["username"];
 $dislikes = 5453;
-$profilePic = "assets/default_pfp.svg";
+$profilePic = $_SESSION["profilePicture"];
 echo "
 <div class=\"profile\">
     <div>
