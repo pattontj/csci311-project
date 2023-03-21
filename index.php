@@ -1,8 +1,8 @@
 <?php
 session_start();
 if (!$_SESSION["uID"] || !$_SESSION["username"]) {
-    header("Location: loginPage.php");
-    echo "<a href='./loginPage.php'>Please login to continue</a>";
+    header("Location: login.php");
+    echo "<a href='./login.php'>Please login to continue</a>";
     die();
 }
 ?>
@@ -65,7 +65,7 @@ if ( isset($_GET["page"]) ) {
     $pagecount = $_GET["page"];
     
     if ( !is_numeric($page) || $page <= 0 ) {
-        header("Location: ./mainPage.php");
+        header("Location: ./index.php");
     }
 }
 else {
@@ -137,7 +137,7 @@ if ($count < $pageLimit) {
 
 if ($count == $pageLimit) {
     $more = $page+1;
-    echo " <a class='pageBtn' href='mainPage.php?page=$more'> Load More... </a>";
+    echo " <a class='pageBtn' href='index.php?page=$more'> Load More... </a>";
 }
     
 

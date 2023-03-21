@@ -58,6 +58,6 @@ $insert = null;
 // echo $newPost;
 
 // send you back to the main page
-header("Location: mainPage.php");
+header("Location: index.php");
 
 ?>

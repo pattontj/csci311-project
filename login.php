@@ -37,7 +37,7 @@ session_start();
 
      <div>
      <br />
-     <a href="./createAccountPage.php">Create account</a>
+     <a href="./createAccount.php">Create account</a>
      </div>
      
      </div>

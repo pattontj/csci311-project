@@ -3,8 +3,8 @@ session_start();
 ?>
 <!-- Nav bar -->
 <div class='navbar'> 
-    <div><a href="./mainPage.php"> Home </a></div>
-    <div><a href='./profilePage.php'> Profile </a></div>
+    <div><a href="./index.php"> Home </a></div>
+    <div><a href='./profile.php'> Profile </a></div>
      <div><a href='./logoutHandler.php'> Logout </a></div>
 
     <form action="future script name here" method="POST">

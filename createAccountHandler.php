@@ -178,4 +178,8 @@ try {
     echo "Insert failed: " . $e->getMessage();
 }
 
+echo "<br /> Account successfully created! <br />";
+echo "<a href='./login.php'>Return to login page</a>";
+
+
 ?>
