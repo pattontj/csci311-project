@@ -7,28 +7,9 @@ if (!$_SESSION["uID"] || !$_SESSION["username"]) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <!--Page Title-->
-  <title></title>
-  <!--Link to StyleSheet-->
-  <link href="css/style.css" rel="stylesheet" />
-
-  <link href="css/navbar.css" rel="stylesheet" />
-
-  <link href="css/post.css" rel="stylesheet" />
-  
-
-</head>
-<body>
-<!--Page Content Goes here-->
-
-<!--  -->
-
-<!-- Nav bar -->
+<!-- Nav bar and header info -->
 <?php
+	 require("header.php");
      require_once("navbar.php");
 ?>
          

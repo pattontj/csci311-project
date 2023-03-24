@@ -23,7 +23,7 @@
 
 			<div>
 				<br>
-					<a href="./loginPage.php">Have an account? Login</a>
+					<a href="./login.php">Have an account? Login</a>
 			</div>
 		 </div>
 	</div>

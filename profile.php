@@ -6,26 +6,14 @@ if (!$_SESSION["uID"] || !$_SESSION["username"]) {
     die();
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <!--Page Title-->
-  <title></title>
-  <!--Link to StyleSheet-->
-  <link href="css/style.css" rel="stylesheet" />
 
-  <link href="css/navbar.css" rel="stylesheet" />
-
-  <link href="css/post.css" rel="stylesheet" />
-  
-
-</head>
-<body>
-
-<!-- Included Navbar -->
-<?php require_once( 'navbar.php' );?>
-<!-- User Profile -->
+<!-- Included Navbar And Header Info-->
+<?php 
+	require ( 'header.php' );
+	require_once( 'navbar.php' );
+	
+?>
+	
 <?php
 
 //fetch dtabase info
@@ -71,8 +59,8 @@ $userName = $usr;
 $dislikes = 5453;
 
 
-echo "
-<div class=\"profile\">
+echo 
+"<div class=\"profile\">
     <div>
 		
         <img src= $profilePic class=\"profileIcon\"/><br>

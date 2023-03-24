@@ -2,19 +2,10 @@
 session_start();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <!--Page Title-->
-  <title>Login Page</title>
-  <!--Link to StyleSheet-->
-  <link href="css/style.css" rel="stylesheet" />
-  <!--Page Icon-->
-  <link rel="icon" type="image/png" href="pathToImage">
-  
-</head>
-<body>
+<?php
+	 require("header.php");
+?>
+	
 	<div class="loginCreate">
 		<div class="center">
 		<!-- Once user selects Login they will be redirected to their home page -->
@@ -40,7 +31,7 @@ session_start();
 	
 		<div>
 			<br>
-			<a href="./createAccountPage.php">New User? Create a account</a>
+			<a href="./createAccount.php">New User? Create a account</a>
 		</div>
      
 		</div>
