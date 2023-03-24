@@ -58,14 +58,14 @@ if (password_verify($pwd, $pwdHash)) {
 } else {
     echo "Username or Password are incorrect.";
     $_SESSION["failedAttempt"] = true;
-    header("Location: loginPage.php");
+    header("Location: login.php");
     die();
 }
 
 
 
 //used to redirect to mainpage
- header("Location: mainPage.php");
+ header("Location: index.php");
 	
 	
 //either the form handling goes here....

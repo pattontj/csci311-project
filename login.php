@@ -28,6 +28,7 @@ session_start();
 		}
 		?>
      
+
 		<label for="userName">UserName:</label><br>
 			<input type="text" id="userName" name="userName" placeholder="Karl_Wheezer" size="20" required><br><br>
 			<label for="password">Password:</label><br>
@@ -35,6 +36,7 @@ session_start();
 		<input type="submit" value="Login">
 		<input type="reset" value="Reset">
 		</form>
+
 	
 		<div>
 			<br>
