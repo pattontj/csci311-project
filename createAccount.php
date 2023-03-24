@@ -1,5 +1,8 @@
 
-<link href="css/style.css" rel="stylesheet" />
+<!-- Included Header Info-->
+<?php 
+	require ( 'header.php' );
+?>
 
 <body>
 	<div class="loginCreate">

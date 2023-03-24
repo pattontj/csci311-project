@@ -8,6 +8,9 @@ session_start();
 	
 	<div class="loginCreate">
 		<div class="center">
+			
+		<img src="assets/Logo.png">
+
 		<!-- Once user selects Login they will be redirected to their home page -->
 		<form action="loginHandler.php" method="post">
 
@@ -29,7 +32,7 @@ session_start();
 		</form>
 
 	
-		<div>
+		<div class="loginLink">
 			<br>
 			<a href="./createAccount.php">New User? Create a account</a>
 		</div>

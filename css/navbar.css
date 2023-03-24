@@ -21,6 +21,7 @@
 .navbar > div > a {
     font-size: 26px;
     border-bottom: solid 2px black; 
+    text-decoration: none;
 }
 
 .navbar > div > img {

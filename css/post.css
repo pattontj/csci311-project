@@ -30,6 +30,31 @@
     display: inline-block;
 }
 
+/*------------Formatting Links----*/ 
+
+.userInfo > a:link {
+    color: black;
+    text-decoration: none;
+   
+}
+
+.userInfo > a:visited {
+    color: black;
+
+}
+
+.userInfo > a:hover {
+    color: white;
+    
+    border: 2px solid black;
+    border-radius: 5px;
+    
+    padding: 4px;
+    background-color: rgba(0, 122, 0, 1);
+}
+
+/*--------------------------------*/
+
 .postContent {
     margin-top: 15px;
     display: inline-block;
