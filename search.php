@@ -1,11 +1,16 @@
 
+
+
 <?php
 
 session_start();
 
+require("header.php");
+
 require("post.php");
 require("database.php");
 
+require("navbar.php");
 
 if ( !isset($_GET["search"]) ) {
     echo "error!";
@@ -45,24 +50,21 @@ try {
 
 try {
     $zero = 0;
-    $query = $dbh->prepare($test);
-    // $query->bindValue(1, "%test%", PDO::PARAM_STR);
-    $query->bindParam(1, $zero,   PDO::PARAM_INT);
+    $searchParam = "%".$search."%";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(1, $searchParam, PDO::PARAM_STR);
+    $query->bindParam(2, $zero,   PDO::PARAM_INT);
 
     $result = $query->execute();
+    $count = $query->rowCount();
 
-    echo "hey";
-    
-    $count = $result->rowCount();
-
-    echo "<br/ > $count <br />";
-    
 } catch ( PDOException $e ) {
     echo "Query failed: ". $e->getMessage();
 }
 
-foreach ( $result as $row ) {
-    echo "test";
+echo "<br/ > <a>$count results found for: \"$search\"</a> <br />";
+
+foreach ( $query as $row ) {
     $userId      = $row["ID"];
     $postContent = $row["PostContent"];
     $postName    = $row["Username"];
