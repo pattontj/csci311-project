@@ -7,8 +7,8 @@ session_start();
     <div><a href='./profile.php'> Profile </a></div>
      <div><a href='./logoutHandler.php'> Logout </a></div>
 
-    <form action="future script name here" method="POST">
-        <input type="search" />
+    <form action="searchHandler.php" method="GET">
+        <input type="search" id="search" name="search" />
         <button type="submit" > Go </button>
     </form>
 
