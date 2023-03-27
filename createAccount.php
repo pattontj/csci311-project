@@ -1,5 +1,8 @@
 
-<link href="css/style.css" rel="stylesheet" />
+<!-- Included Header Info-->
+<?php 
+	require ( 'header.php' );
+?>
 
 <body>
 	<div class="loginCreate">
@@ -23,7 +26,7 @@
 
 			<div>
 				<br>
-					<a href="./loginPage.php">Have an account? Login</a>
+					<a href="./login.php">Have an account? Login</a>
 			</div>
 		 </div>
 	</div>

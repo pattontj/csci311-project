@@ -11,7 +11,7 @@
 /*---------Making Login and create Account Page look nice-------------*/
 .loginCreate > * {
 	margin-top:20%;
-
+}
 	
 
 .pageBtn {
@@ -22,7 +22,6 @@
     border-radius: 10px;
     display: block;
     padding: 25px;
-
     width: 575px;
     min-height: 15px;
     text-align: center;
@@ -88,7 +87,7 @@
 .dislikes {
     display: block;
     float: right;
-    margin-left: 83%;
+    margin-left: 80%;
     
     
 
