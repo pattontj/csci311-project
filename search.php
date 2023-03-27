@@ -20,6 +20,25 @@ if ( !isset($_GET["search"]) ) {
 
 $search = $_GET["search"];
 
+if ( isset($_GET["page"]) ) {
+    $page = $_GET["page"];
+    $pagecount = $_GET["page"];
+    
+    if ( !is_numeric($page) || $page <= 0 ) {
+        header("Location: ./index.php");
+    }
+}
+else {
+    $page = 1;
+    $pagecount = 1;
+}
+
+$pgTmp = $page - 1;
+$pageLimit = 10;
+$pageIdx = $pgTmp * $pageLimit;
+
+
+
 // $sql = "SELECT * FROM Post WHERE PostContet LIKE %?%";
 
 $sql = "SELECT p.ID, p.PostContent, p.Date, UserProfile.Username, Image.Filename as Filename ".
@@ -49,11 +68,10 @@ try {
 
 
 try {
-    $zero = 0;
     $searchParam = "%".$search."%";
     $query = $dbh->prepare($sql);
     $query->bindParam(1, $searchParam, PDO::PARAM_STR);
-    $query->bindParam(2, $zero,   PDO::PARAM_INT);
+    $query->bindParam(2, $pageIdx,   PDO::PARAM_INT);
 
     $result = $query->execute();
     $count = $query->rowCount();
@@ -75,6 +93,10 @@ foreach ( $query as $row ) {
 
 }
 
+if ($count == $pageLimit) {
+    $more = $page+1;
+    echo " <a class='pageBtn' href='search.php?search=$search&page=$more'> Load More... </a>";
+}
 
 
 
