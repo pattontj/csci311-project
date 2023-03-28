@@ -8,7 +8,7 @@ session_start();
      <div><a href='./logoutHandler.php'> Logout </a></div>
 
     <form action="search.php" method="GET">
-        <input type="search" id="search" name="search" />
+        <input type="search" id="search" name="search" required />
         <button type="submit" > Go </button>
     </form>
 
