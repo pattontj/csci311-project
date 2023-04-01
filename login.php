@@ -9,40 +9,34 @@ session_start();
 	<div class="loginCreate">
 		<div class="center">
 			
-		<img src="assets/Logo.png">
+			<img src="assets/Logo.png">
 
-		<!-- Once user selects Login they will be redirected to their home page -->
-		<form action="loginHandler.php" method="post">
+			<!-- Once user selects Login they will be redirected to their home page -->
+			<form action="loginHandler.php" method="post">
 
 
-		<?php
-		if ($_SESSION["failedAttempt"] || $_SESSION["failedAttempt"] == true) {
-			echo "<a>Login attempt failed</a> <br/> <br />";
-			$_SESSION["failedAttempt"] = false;
-		}
-		?>
+			<?php
+			if ($_SESSION["failedAttempt"] || $_SESSION["failedAttempt"] == true) {
+				echo "<a>Login attempt failed</a> <br/> <br />";
+				$_SESSION["failedAttempt"] = false;
+			}
+			?>
      
-     <label for="userName">UserName:</label><br>
-		<input type="text" id="userName" name="userName" placeholder="Karl_Wheezer" size="20" required><br><br>
-		<label for="password">Password:</label><br>
-		<input type="password" id="password" name="password" placeholder="Enter_Password" size="20" required><br><br>
-     <input type="submit" value="Login">
-     <input type="reset" value="Reset">
-	</form>
+			<label for="userName">UserName:</label><br>
+				<input type="text" id="userName" name="userName" placeholder="Karl_Wheezer" size="20" required><br><br>
+				<label for="password">Password:</label><br>
+				<input type="password" id="password" name="password" placeholder="Enter_Password" size="20" required><br><br>
+			<input type="submit" value="Login">
+			<input type="reset" value="Reset">
+			</form>
 
-     <div>
-     <br />
-     <a href="./createAccount.php">Create account</a>
-     </div>
-     
-     </div>
-	
-		<div class="loginLink">
-			<br>
-			<a href="./createAccount.php">New User? Create a account</a>
+
+			<div class="loginCreateLink">
+				</br>
+				<a href="./createAccount.php">New User? Create Account</a>
+			</div>
 		</div>
      
-		</div>
 	</div>
 	
      
