@@ -13,13 +13,13 @@
           </div>
         <?php
           session_start();
-          echo "<p style='vertical-align: 80%;'>".$_SESSION["username"]."</p>";   
+          echo "<a style='vertical-align: 80%;'>".$_SESSION["username"]."</a>";   
          ?>
           </div>
 
      <!--// autocomplete off: https://stackoverflow.com/questions/48948460/reload-the-page-php-without-fill-the-text-boxes-with-old-data-php -->
     <form action='newPost.php' method='post' style='display: inline-block;'>
-          <textarea id='postBox' name='postBox' class='createPostBox' wrap='soft' maxlength='900' placeholder='Say something fun!' autocomplete='off'></textarea>
+          <textarea id='postBox' name='postBox' class='createPostBox' wrap='soft' maxlength='900' placeholder='Say something fun!' autocomplete='off' style='font-size: 18px;'></textarea>
           <input type='submit' value='post' style='vertical-align:bottom; width: 45px;'/>
     </form>
 

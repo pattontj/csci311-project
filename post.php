@@ -22,7 +22,7 @@ function form_post($posterID=0, $posterName="Name User",
     echo "
     <div class='post'>
 
-    <div class='userInfo'>
+p    <div class='userInfo'>
         <div>
             <img src=$imgPath class=userIcon width='40px' height='40px'/>
         </div>
