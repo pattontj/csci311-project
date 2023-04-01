@@ -59,6 +59,9 @@ try {
 
 //------------------------------------------------------------------------
 
+echo " <a class='pageBtn' href='index.php'> Load More... </a>";
+
+
 echo "<div>";
 
 // For each response, grab post information and pass to the form post component

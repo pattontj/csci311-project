@@ -36,15 +36,17 @@
 .pageBtn {
     margin-left:100px;
     margin-right: 100px;
-    margin-top: 5px;
-    border: solid 2px black;
-    border-radius: 10px;
+    margin-top: -2px;
+    border: solid 2px rgba(0,200,0,.9);
+    /*border-radius: 10px;*/
     display: block;
     padding: 25px;
     width: 575px;
     min-height: 15px;
     text-align: center;
 
+    color: white;
+    
 }
 
 
@@ -55,13 +57,14 @@
     margin-top: 50px;
     margin-right: 100px;
     
-    border: solid 2px rgb(0, 0, 0);
-    border-radius: 10px;
+    border: solid 2px rgba(0,200,0, .9);
+    /*border-radius: 10px; */
 
-    display: inline-block;
+    display: flex;
     padding: 25px;
 
     width: 575px;
+    color: white;
 }
 
 .profile > div {
@@ -70,7 +73,7 @@
 
 /*pfp formatting*/
 .profileIcon {
-    border: solid 2px rgb(0, 0, 0);
+    border: solid 2px rgba(0,200,0, .9);
     border-radius: 50px;
 
     display: block;
@@ -88,18 +91,31 @@
     float: left;
 
     display: block;
-    margin-left: 10px;
+
+    margin-top: 30px;
+    margin-left: 25px;
 
     width: 430px;
     overflow: auto;
     overflow-wrap: break-word;
 
+    
 }
 
 /*userName formatting*/
 .userName {
     text-align: center;
-    width: 130px;
+    
+    
+    /*border: 2px solid black;*/
+    border-radius: 5px;
+
+    margin-top: 10px;
+    margin-left: 10px;
+    
+    padding: 5px;
+    background-color: rgba(0, 128, 0, .9);
+    display: inline-block;
 }
 
 /*Dislike counter formatting*/

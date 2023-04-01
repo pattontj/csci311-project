@@ -21,7 +21,7 @@
 .navbar > div > a {
 	color: white;
     font-size: 26px;
-    border-bottom: solid 2px black; 
+    border-bottom: solid 2px rgba(0,200,0, .9); 
     text-decoration: none;
     background-color: rgba(0, 122, 0, 1);
 }
