@@ -8,7 +8,7 @@ try {
     $dbh = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "<br/> <a style='margin:20%;text-align:center;'>Debug Info: Connected successfully </a><br/>";
+    //    echo "<br/> <a style='margin:20%;text-align:center;'>Debug Info: Connected successfully </a><br/>";
 
 } catch ( PDOException $e ) {
     echo "Connection failed: ". $e->getMessage();
@@ -84,8 +84,8 @@ if ($count < $pageLimit) {
 }
 */
 
-if ($count == $pageLimit) {
-    $more = $page+1;
-    echo " <a class='pageBtn' href='index.php?page=$more'> Load More... </a>";
-}
+// if ($count == $pageLimit) {
+//    $more = $page+1;
+//    echo " <a class='pageBtn' href='index.php?page=$more'> Load More... </a>";
+// }
 ?>
