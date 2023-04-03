@@ -129,3 +129,10 @@
 }
 
 /*-------------------------------------------------------------------*/
+
+.searchres {
+    color: white;
+    margin-left: 15%;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
