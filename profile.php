@@ -41,7 +41,7 @@ else {
 }
 
 try{
-	$query = $dbh->prepare("SELECT Description, Image.Filename as Filename FROM UserProfile INNER JOIN Image ON ProfilePicture = Image.ID WHERE Username = ? LIMIT 1");
+	$query = $dbh->prepare("SELECT UserProfile.ID, Description, Image.Filename as Filename FROM UserProfile INNER JOIN Image ON ProfilePicture = Image.ID WHERE Username = ? LIMIT 1");
 	$query->bindParam(1, $usr, PDO::PARAM_STR);
 	$query->execute();
 } catch ( PDOException $e ) {
@@ -52,6 +52,7 @@ try {
     $values= $query->fetch(PDO::FETCH_ASSOC);
     $description = $values["Description"];
     $profilePic  = $values["Filename"];
+    $UsrID = $values["ID"];
 }catch (PDOException $e) {
     echo "Fetch error: ". $e->getMessage();
 }
@@ -77,7 +78,7 @@ echo
         $description
     </div>
 
-</div>"
+</div>";
 
 
 
@@ -91,18 +92,17 @@ $pageIdx = $pgTmp * $pageLimit;
 
 // Selects the post ID, content, and joins the user's username, orders by datetimestamp
 $query = "SELECT p.ID, p.PostContent, p.Date, UserProfile.Username, Image.Filename as Filename ".
-       "FROM (SELECT * FROM Post WHERE Username = ? ORDER BY ID DESC LIMIT ?,10) as p ".
+       "FROM (SELECT * FROM Post WHERE UserID = ? ORDER BY ID DESC LIMIT ?,10) as p ".
        "LEFT JOIN UserProfile ON p.UserID = UserProfile.ID ".
        "LEFT JOIN Image ON UserProfile.ProfilePicture = Image.ID ".
        "ORDER BY p.Date DESC";
 
 
-
-       
 try {
     $result = $dbh->prepare($query);
-    $result->bindParam(1, $usr, PDO::PARAM_STR);
+    $result->bindParam(1, $UsrID, PDO::PARAM_INT);
     $result->bindParam(2, $pageIdx, PDO::PARAM_INT);
+    
     $result->execute();
     $count = $result->rowCount();
     
@@ -114,9 +114,6 @@ try {
 
 
 //------------------------------------------------------------------------
-
-echo " <a class='pageBtn' href='index.php'> Load More... </a>";
-
 
 echo "<div>";
 

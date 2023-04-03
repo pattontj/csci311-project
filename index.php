@@ -28,6 +28,7 @@ include("createPost.php");
 // session_start();
 
 
+echo " <a class='pageBtn' href='index.php'> Load More... </a>";
 require("paginatePost.php");
 
 ?>
