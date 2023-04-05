@@ -8,6 +8,8 @@
 	<div class="loginCreate">
 		<div class="center">
 			<img src="assets/Logo.png">
+			</br>
+			</br>
 			<form action="createAccountHandler.php" method="post" enctype="multipart/form-data">
 				<label for="username">User Name: </label> <br />
 				<input type="text" id="reqUserName" name="reqUserName" placeholder="Desired username..." required /> <br /> <br />

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <!--Page Title-->
-  <title>Name Of Site</title>
+  <title>__________________________</title>
   <!--Link to StyleSheet-->
   <link href="css/style.css" rel="stylesheet" />
 

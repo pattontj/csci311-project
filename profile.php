@@ -25,7 +25,7 @@ try {
     $dbh = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "<br/> <a style='margin:20%;text-align:center;'>Debug Info: Connected successfully </a><br/>";
+    //echo "<br/> <a style='margin:20%;text-align:center;'>Debug Info: Connected successfully </a><br/>";
 
 } catch ( PDOException $e ) {
     echo "Connection failed: ". $e->getMessage();

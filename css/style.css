@@ -14,13 +14,13 @@
 }
 
 .loginCreateLink > a:link {
-	color: black;
+	color: rgb(255, 255, 255);
 	text-decoration: none;
 	font-size: 90%;
 }	
 
 .loginCreateLink > a:visited {
-	color: gray;
+	color: rgb(255, 255, 255);
 }
 
 .loginCreateLink > a:hover {

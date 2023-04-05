@@ -10,6 +10,8 @@ session_start();
 		<div class="center">
 			
 			<img src="assets/Logo.png">
+			</br>
+			</br>
 
 			<!-- Once user selects Login they will be redirected to their home page -->
 			<form action="loginHandler.php" method="post">
